@@ -39,36 +39,36 @@ Um resumo das decisões e validações implementadas até o momento compreende:
 
 ### Lógica Aplicada
 
-1 Inicializa a matriz db preenchendo a posição db[i][0] com '\0' para todas as linhas.
-2 Entra no laço principal do Menu Interativo (do-while).
-3 Captura a opção escolhida pelo usuário (opt).
-4 Processa a opção via Switch:
-    4.1 Caso 1: Incluir Nome (Create)
-        4.1.1 Captura a string de entrada via scanf(" %[^\n]", nameAux).
-        4.1.2 Percorre a matriz comparando via strcmp() as linhas ocupadas com a entrada.
-        4.1.3 Se encontrar correspondência: isDuplicate torna-se 1 e a operação é abortada.
-        4.1.4 Se único: busca a primeira linha onde db[i][0] == '\0'.
-        4.1.5 Se não houver linha vazia (emptyIndex == -1): exibe erro de banco cheio.
-        4.1.6 Se houver vaga: copia a string com strcpy() para db[emptyIndex].
-    4.2 Caso 2: Buscar Nome (Read)
-        4.2.1 Solicita o termo de busca e realiza varredura linear nas linhas ativas.
-        4.2.2 Se encontrar: altera found para 1 e imprime o índice numérico da linha correspondente.
-        4.2.3 Se o loop terminar com found == 0: emite mensagem de registro não encontrado.
-    4.3 Caso 3: Modificar Nome (Update)
-        4.3.1 Localiza o registro antigo via busca linear. Se não encontrar, aborta.
-        4.3.2 Se encontrar: retém a posição em targetIndex e solicita o novo nome (newName).
-        4.3.3 Realiza varredura na matriz para garantir que newName não seja duplicado.
-        4.3.4 Se o novo nome for exclusivo: atualiza o índice mapeado via strcpy(db[targetIndex], newName).
-    4.4 Caso 4: Apagar Nome (Delete)
-        4.4.1 Realiza a varredura linear para localizar o nome informado pelo usuário.
-        4.4.2 Se localizado: aplica db[i][0] = '\0', invalidando sua leitura imediata e liberando a vaga.
-        4.4.3 Se não localizado: exibe alerta de erro.
-    4.5 Caso 5: Listar Todos os Nomes (Read All)
-        4.5.1 Inicializa activeCount com 0 e exibe o cabeçalho formatado da tabela.
-        4.5.2 Percorre todas as linhas verificando se db[i][0] != '\0'.
-        4.5.3 Exibe o índice alinhado e o conteúdo de cada string válida, incrementando activeCount.
-        4.5.4 Ao término, se activeCount for 0, emite alerta de banco vazio.
-    4.6 Caso 0: Altera a condição de parada e encerra a execução do programa.
+1 Inicializa a matriz db preenchendo a posição db[i][0] com '\0' para todas as linhas.  
+2 Entra no laço principal do Menu Interativo (do-while).  
+3 Captura a opção escolhida pelo usuário (opt).  
+4 Processa a opção via Switch:  
+    4.1 Caso 1: Incluir Nome (Create)  
+        4.1.1 Captura a string de entrada via scanf(" %[^\n]", nameAux).  
+        4.1.2 Percorre a matriz comparando via strcmp() as linhas ocupadas com a entrada.  
+        4.1.3 Se encontrar correspondência: isDuplicate torna-se 1 e a operação é abortada.  
+        4.1.4 Se único: busca a primeira linha onde db[i][0] == '\0'.  
+        4.1.5 Se não houver linha vazia (emptyIndex == -1): exibe erro de banco cheio.  
+        4.1.6 Se houver vaga: copia a string com strcpy() para db[emptyIndex].  
+    4.2 Caso 2: Buscar Nome (Read)  
+        4.2.1 Solicita o termo de busca e realiza varredura linear nas linhas ativas.  
+        4.2.2 Se encontrar: altera found para 1 e imprime o índice numérico da linha correspondente.  
+        4.2.3 Se o loop terminar com found == 0: emite mensagem de registro não encontrado.  
+    4.3 Caso 3: Modificar Nome (Update)  
+        4.3.1 Localiza o registro antigo via busca linear. Se não encontrar, aborta.  
+        4.3.2 Se encontrar: retém a posição em targetIndex e solicita o novo nome (newName).  
+        4.3.3 Realiza varredura na matriz para garantir que newName não seja duplicado.  
+        4.3.4 Se o novo nome for exclusivo: atualiza o índice mapeado via strcpy(db[targetIndex], newName).  
+    4.4 Caso 4: Apagar Nome (Delete)  
+        4.4.1 Realiza a varredura linear para localizar o nome informado pelo usuário.  
+        4.4.2 Se localizado: aplica db[i][0] = '\0', invalidando sua leitura imediata e liberando a vaga.  
+        4.4.3 Se não localizado: exibe alerta de erro.  
+    4.5 Caso 5: Listar Todos os Nomes (Read All)  
+        4.5.1 Inicializa activeCount com 0 e exibe o cabeçalho formatado da tabela.  
+        4.5.2 Percorre todas as linhas verificando se db[i][0] != '\0'.  
+        4.5.3 Exibe o índice alinhado e o conteúdo de cada string válida, incrementando activeCount.  
+        4.5.4 Ao término, se activeCount for 0, emite alerta de banco vazio.  
+    4.6 Caso 0: Altera a condição de parada e encerra a execução do programa.  
 
 ---
 
@@ -133,6 +133,7 @@ flowchart TD
     classDef default fill:#ffffff,stroke:#cad2d9,stroke-width:1px,color:#4a5568;
     classDef decision fill:#ffffff,stroke:#cad2d9,stroke-width:1px,color:#4a5568;
     class CheckOpt,CheckDup,CheckVaga,CheckFound,CheckTarget,CheckNewDup,CheckDel,CheckActive,CheckEmpty decision;
+```
 
 ---
 
