@@ -110,7 +110,8 @@ int main() {
                     //valida se novo nome existe
                     isDuplicate = 0;
                     for (int i = 0; i < MAX_RECORDS; i++) {
-                        if (db[i][0] != '\0' && strcmp(db[i], newName) == 0) {
+                        //ignora proprio indice e compara
+                        if (i != targetIndex && db[i][0] != '\0' && strcmp(db[i], newName) == 0) {
                             isDuplicate = 1;
                             break;
                         }
